@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block search %}
+<form class="d-flex" role="search" method="post">
+    {{search.hidden_tag()}}
+    {{search.input(class="form-control me-2", type="search", placeholder="ძიება")}}
+    {{search.submit(class="btn btn-outline-success", type="submit", value="ძიება")}}
+    <!-- <button class="btn btn-outline-success" type="submit">ძიება</button> -->
+</form>
+{% endblock %}
+{% block content %}
+<section class="pages">
+    {% for el in pages %}
+    <div class="card" onclick="window.location.href = '/page-{{el.id}}';">
+        {%if el.coordinates%}
+        <iframe src="https://maps.google.com/maps?q={{el.coordinates}}&hl=en&z=14&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        {%endif%}
+        <h1>{{el.projectname}}</h1>
+        <h2>{{el.time}}</h2>
+        <p>{{el.content}}</p>
+        <img class = "arr" src="../static/images/arr-down.png">
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

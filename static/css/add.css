@@ -1,0 +1,65 @@
+#form {
+  width: 100%;
+  margin: 10vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#form h1 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #274C5B;
+  font-size: 2.4rem;
+  margin: 0 1rem;
+  margin-bottom: 5rem;
+}
+#form form {
+  margin: 0 3vw;
+}
+#form form input[type=text],
+#form form input[type=email],
+#form form textarea,
+#form form select,
+#form form #time {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 3vh;
+}
+#form form label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #274C5B;
+}
+#form form #submit {
+  width: 100%;
+  height: fit-content;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: x-large;
+  border-radius: 10px;
+  color: #F9F8F8;
+  background-color: #274C5B;
+  border: none;
+}
+#form form #submit:hover {
+  background-color: #254653;
+}
+#form form div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/*# sourceMappingURL=add.css.map */

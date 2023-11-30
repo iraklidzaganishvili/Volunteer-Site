@@ -1,0 +1,149 @@
+@import "varuables";
+
+.navbar {
+    height: 5rem;
+    margin-bottom: 2rem;
+    li {
+        margin-left: 3rem;
+
+        a {
+            @include mainText;
+            font-size: 2rem;
+            color: $base-color;
+        }
+    }
+
+    .navbar-brand {
+        height: 4rem;
+        cursor: pointer;
+    }
+
+    .container-fluid {
+        background-color: $bg;
+        z-index: 100;
+        width: 100%;
+        .btn-outline-success{
+            border-color: #f7d05b;
+            color: $base-color;
+            &:hover{
+                background-color: $btn-color-hover;
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .d-flex {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+footer {
+    align-self: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    background-color: $bg;
+    justify-content: space-around;
+
+    a,
+    p {
+        @include grayText;
+    }
+
+    #contacts {
+        margin-top: 3rem;
+        text-align: right;
+    }
+
+    #footersec2 {
+        border-right: $ft-border;
+        border-left: $ft-border;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin-top: 3rem;
+        text-align: center;
+
+        p {
+            margin-top: 3rem;
+        }
+
+        img {
+            width: 8rem;
+        }
+
+        #media {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            img {
+                object-fit:scale-down;
+                width: 22rem;
+            }
+        }
+    }
+
+    #utpages {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+        text-align: left;
+    }
+
+    #copyright {
+        margin-top: 5rem;
+        padding-top: 1rem;
+        border-top: $ft-border;
+        flex: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 992px) {
+
+        #utpages,
+        #contacts {
+            text-align: center;
+        }
+
+        #footersec2 {
+            border: none;
+            border-top: $ft-border;
+            border-bottom: $ft-border;
+            padding: 3rem;
+        }
+    }
+}
+
+.custom-btn {
+    display: flex;
+    padding: 1.75rem 2.4375rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 1rem;
+    background: $btn-color;
+    box-shadow: 0.4vw 0.5vw #888888;
+    text-align: center;
+    align-self: center;
+    margin-top: 1vw;
+    @include mainText;
+
+    &:hover {
+        transition: all .05s linear;
+        background-color: $btn-color-hover;
+    }
+
+    &:active {
+        position: relative;
+        top: 0.5vw;
+        transition: all .05s linear;
+        box-shadow: none;
+    }
+
+    @media (max-width: 992px) {
+        font-size: 2.5vw;
+        padding: 2.75vw 3.4375vw;
+        border-radius: 1.5vw;
+    }
+}

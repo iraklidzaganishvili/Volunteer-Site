@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="form">
+    <h1>შექმენით თქვენი მოხალისობრივი განცხადება</h1>
+    <form method="post" enctype="multipart/form-data">
+
+        {% if form.errors %}
+        {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+
+        {{form.hidden_tag()}}
+
+        <label for="projectname">პროექტის სახელი (აუცილებელი)</label>
+        {{ form.projectname(id="projectname", placeholder = "თქვენი პროექტის სახელი..",
+        oninvalid="this.setCustomValidity('ჩაწერეთ პროექტის სახელი')",
+        oninput="this.setCustomValidity('')") }}
+
+        <label for="sender">სახელი და გვარი</label>
+        {{ form.name(id="sender", placeholder = "თქვენი სახელი და გვარი..") }}
+
+        <label for="email">ელ-ფოსტა</label>
+        {{ form.email(id="email", placeholder = "თქვენი ელ-ფოსტა..") }}
+
+        <label for="coordinates">შეხვედრის კოორდინატბი</label>
+        {{ form.coordinates(id="coordinates", placeholder = "კოორდინატები (40.123456, 40.123456)") }}
+
+        <label for="time">შეხვედრის დრო (აუცილებელი)</label>
+        {{ form.time(id="time", placeholder = "Time..",
+        oninvalid="this.setCustomValidity('ჩაწერეთ შეხვედრის დრო')",
+        oninput="this.setCustomValidity('')")}}
+        <br>
+
+        <label for="content">დამატებითი ინფორმაცია (აუცილებელი)</label>
+        {{ form.content(id="content", placeholder = "ჩაწერეთ ინფორმაცია..",
+        oninvalid="this.setCustomValidity('ჩაწერეთ ინფორმაცია თქვენს პროექტზე')",
+        oninput="this.setCustomValidity('')") }}
+
+        {{ form.submit(id="submit", class="custom-btn", value="განცხადების დამატება") }}
+
+    </form>
+</section>
+{% endblock %}

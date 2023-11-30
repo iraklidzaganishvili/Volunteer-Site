@@ -1,0 +1,21 @@
+$base-color: #274C5B;
+$btn-color: #FDF7E4;
+$btn-color-hover:#f7d05b ;
+$bg: #F9F8F8;
+$ft-border: 0.0625rem solid #D4D4D4;
+@mixin mainText{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: $base-color;
+}
+@mixin grayText{
+    color: #525C60;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 272.9%;
+}
