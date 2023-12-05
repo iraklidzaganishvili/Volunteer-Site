@@ -1,7 +1,7 @@
 from flask import render_template, redirect
 from forms import AddProductForm, AddSearchForm
 from ext import app, db
-from models import Page
+from models import Page, User
 
 
 @app.route("/", methods=["POST", "GET"])
