@@ -21,13 +21,20 @@
         oninvalid="this.setCustomValidity('ჩაწერეთ პროექტის სახელი')",
         oninput="this.setCustomValidity('')") }}
 
+        
+        {% if current_user.id %}
         <label for="sender">სახელი და გვარი</label>
-        {{ form.name(id="sender", placeholder = "თქვენი სახელი და გვარი..", value=current_user.name + " "
-        +current_user.surname) }}
-
+        {{ form.name(id="sender", placeholder = "თქვენი სახელი და გვარი..", 
+        value=current_user.name + " " +current_user.surname)}}
         <label for="email">ელ-ფოსტა</label>
         {{ form.email(id="email", placeholder = "თქვენი ელ-ფოსტა..", value=current_user.email) }}
-
+        {% else %}
+        <label for="sender">სახელი და გვარი</label>
+        {{ form.name(id="sender", placeholder = "თქვენი სახელი და გვარი..")}}
+        <label for="email">ელ-ფოსტა</label>
+        {{ form.email(id="email", placeholder = "თქვენი ელ-ფოსტა..") }}
+        {% endif %}
+        
         <label for="coordinates">შეხვედრის კოორდინატბი</label>
         {{ form.coordinates(id="coordinates", placeholder = "კოორდინატები (40.123456, 40.123456)") }}
 

@@ -123,10 +123,10 @@ def view_page(page_id):
 
         return redirect(f"/page-{page_id}#map")
     
-    if current_user.commingTo == "null":
+    # if current_user.commingTo == "null":
 
-        current_user.commingTo = ""
-        db.session.commit()
+    #     current_user.commingTo = ""
+    #     db.session.commit()
 
     if current_user.commingTo and page_id in json.loads(current_user.commingTo): comming = "მოვდივარ"
     else: comming = "წამოხვალ?"
