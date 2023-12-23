@@ -5,6 +5,11 @@
     <h3>{{page.email}}</h3>
     <h3 id = "ptime">შეხვედრის დრო - {{page.time}}</h3>
     <p>{{page.content}}</p>
-    <iframe src="https://maps.google.com/maps?q={{page.coordinates}}&hl=en&z=14&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://maps.google.com/maps?q={{page.coordinates}}&hl=en&z=14&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id = "map"></iframe>
+    <form role="counter" method="post" id="counter">
+        {{x.hidden_tag()}}
+        {{x.submitX(class = "btn btn-outline-success", type="submit", value=comming)}}
+    </form>
+    <h1>{{comming_num}} მოდის </h1>
 </section>
 {% endblock %}

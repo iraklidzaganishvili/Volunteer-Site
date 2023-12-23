@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>მოხალისეობის საიტი</title>
 
-        <!-- bootstrap -->
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <!-- css -->    
+    <!-- css -->
     <link rel="stylesheet" href="../static/css/repeats.css">
     <link rel="stylesheet" href="../static/css/index.css">
     <link rel="stylesheet" href="../static/css/add.css">
@@ -33,6 +33,22 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <img class="navbar-brand" src="../static/images/logo.png" alt="Logo" onclick="window.location.href = '/'">
+            <div class="login">
+                {% if current_user.id %}
+                <div class="dropdown">
+                <a class="btn btn-outline-success dropdown-toggle"  id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.name}}</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><a class="dropdown-item" href="/login">თავიდან შესვლა</a></li>
+                    <li><a class="dropdown-item" href="/register">ახალი რეგისტრაცია</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/logout">გამოსვლა</a></li>
+                  </ul>
+                </div>
+                {% else %}
+                <a class="btn btn-outline-success" href="/register">რეგისტრაცია</a>
+                <a class="btn btn-outline-success" href="/login">შესვლა</a>
+                {% endif %}
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -46,9 +62,9 @@
                     <li class="nav-item">
                         <a class="nav-link " href="/add.html">დამატება</a>
                     </li>
+                    {% block search %}
+                    {% endblock %}
                 </ul>
-                {% block search %}
-                {% endblock %}
             </div>
         </div>
     </nav>
@@ -65,9 +81,11 @@
             <p>2 Ilia Chavchavadze Avenue, Tbilisi</p>
         </div>
         <div id="footersec2">
-            <img src="../static/images/logo.png">
+            <a href="https://www.tbceducation.ge/">
+            <img src="../static/images/tbc.webp">
+            </a>
             <p>
-                მოხალისეობის საიტის Demo ვერსია ჰაკათონისთვის. <br> ირაკლი ძაგანიშვილი და დემეტრე კოხრე
+                მოხალისეობის საიტი, ჯეოლაბის ფინალური პროექტი<br> ირაკლი ძაგანიშვილი
             </p>
             <div id="media">
                 <img src="../static/images/Cover-Logos.png">
@@ -81,7 +99,7 @@
             <a href="#">Licences</a>
             <a href="#">Changelog</a>
         </div>
-        <p id="copyright">Copyright © Aragorn Studios™ | Designed by Irakli & Demetre - Powered by God</p>
+        <p id="copyright">Copyright © Aragorn Studios™ | Designed by Irakli - Powered by God</p>
     </footer>
 </body>
 </body>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="form">
+    <h1>შესვლა</h1>
+    <form method="post" enctype="multipart/form-data">
+
+        {% if form.errors %}
+        {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+        
+        {% if error != False %}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+        {% endif %}
+
+        {{form.hidden_tag()}}
+
+        <label for="email">ელ-ფოსტა</label>
+        {{ form.email(id="email", placeholder = "შეიყვანეთ ელ-ფოსტა..",
+        oninvalid="this.setCustomValidity('შეიყვანეთ ელ-ფოსტა')") }}
+
+        <label for="coordinates">პაროლი</label>
+        {{ form.password(id="password", placeholder = "შეიყვანეთ პაროლი..",
+        oninvalid="this.setCustomValidity('შეიყვანეთ პაროლი')") }}
+
+        {{ form.submit(id="submit", class="custom-btn", value="დადასტურება") }}
+
+    </form>
+</section>
+{% endblock %}

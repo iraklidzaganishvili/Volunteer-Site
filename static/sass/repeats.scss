@@ -3,6 +3,7 @@
 .navbar {
     height: 5rem;
     margin-bottom: 2rem;
+
     li {
         margin-left: 3rem;
 
@@ -11,6 +12,35 @@
             font-size: 2rem;
             color: $base-color;
         }
+    }
+    .login {
+        order: 10;
+        .dropdown-menu{
+            right: 0;
+            left: initial;
+            li{
+                a{
+                    font-size: 1rem;
+                    &:active{
+                        background-color: #888888;
+                    }
+                }
+                margin-left: 0px;
+            }
+        }
+        @media only screen and (max-width: 1000px) {
+            order: initial;
+            margin-right: 0.5rem;
+            a{
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .search {
+        margin-left: 3rem;
+        height: min-content;
+        transform: translate(0, 40%);
     }
 
     .navbar-brand {
@@ -22,10 +52,15 @@
         background-color: $bg;
         z-index: 100;
         width: 100%;
-        .btn-outline-success{
+
+        .btn-outline-success {
             border-color: #f7d05b;
             color: $base-color;
-            &:hover{
+            background-color: transparent;
+            &:hover {
+                background-color: $btn-color-hover;
+            }
+            &[aria-expanded="true"]{
                 background-color: $btn-color-hover;
             }
         }
@@ -76,8 +111,9 @@ footer {
             margin-top: 3rem;
             display: flex;
             justify-content: center;
+
             img {
-                object-fit:scale-down;
+                object-fit: scale-down;
                 width: 22rem;
             }
         }

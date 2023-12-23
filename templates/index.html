@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block search %}
-<form class="d-flex" role="search" method="post">
+<form class="d-flex nav-item search" role="search" method="post">
     {{search.hidden_tag()}}
     {{search.input(class="form-control me-2", type="search", placeholder="ძიება")}}
-    {{search.submit(class="btn btn-outline-success", type="submit", value="ძიება")}}
+    {{search.submitS(class="btn btn-outline-success", type="submit", value="ძიება")}}
     <!-- <button class="btn btn-outline-success" type="submit">ძიება</button> -->
 </form>
 {% endblock %}
@@ -11,13 +11,21 @@
 <section class="pages">
     {% for el in pages %}
     <div class="card" onclick="window.location.href = '/page-{{el.id}}';">
+        {% if current_user.email == "admin" %}
+        <form role="x" method="post" id="x-form">
+            {{x.hidden_tag()}}
+            {{x.info(value = el.id, type="hidden")}}
+            {{x.submitX(id = "x", class = "btn btn-outline-success", type="submit", value="x")}}
+        </form>
+        {%endif%}
         {%if el.coordinates%}
-        <iframe src="https://maps.google.com/maps?q={{el.coordinates}}&hl=en&z=14&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://maps.google.com/maps?q={{el.coordinates}}&hl=en&z=14&amp;output=embed" style="border:0;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         {%endif%}
         <h1>{{el.projectname}}</h1>
         <h2>{{el.time}}</h2>
         <p>{{el.content}}</p>
-        <img class = "arr" src="../static/images/arr-down.png">
+        <img class="arr" src="../static/images/arr-down.png">
     </div>
     {% endfor %}
 </section>

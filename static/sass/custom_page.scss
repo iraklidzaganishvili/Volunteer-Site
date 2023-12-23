@@ -26,9 +26,14 @@
     iframe {
         width: 70%;
         height: 25rem;
+        margin-bottom: 1rem;
         @media (max-width: 480px) {
             width: 100%;
         }
+    }
+
+    form{
+        margin-bottom: 1rem;
     }
 
     p{

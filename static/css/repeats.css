@@ -15,6 +15,36 @@
   font-size: 2rem;
   color: #274C5B;
 }
+.navbar .login {
+  order: 10;
+}
+.navbar .login .dropdown-menu {
+  right: 0;
+  left: initial;
+}
+.navbar .login .dropdown-menu li {
+  margin-left: 0px;
+}
+.navbar .login .dropdown-menu li a {
+  font-size: 1rem;
+}
+.navbar .login .dropdown-menu li a:active {
+  background-color: #888888;
+}
+@media only screen and (max-width: 1000px) {
+  .navbar .login {
+    order: initial;
+    margin-right: 0.5rem;
+  }
+  .navbar .login a {
+    font-size: 0.9rem;
+  }
+}
+.navbar .search {
+  margin-left: 3rem;
+  height: min-content;
+  transform: translate(0, 40%);
+}
 .navbar .navbar-brand {
   height: 4rem;
   cursor: pointer;
@@ -27,8 +57,12 @@
 .navbar .container-fluid .btn-outline-success {
   border-color: #f7d05b;
   color: #274C5B;
+  background-color: transparent;
 }
 .navbar .container-fluid .btn-outline-success:hover {
+  background-color: #f7d05b;
+}
+.navbar .container-fluid .btn-outline-success[aria-expanded=true] {
   background-color: #f7d05b;
 }
 @media only screen and (max-width: 1000px) {

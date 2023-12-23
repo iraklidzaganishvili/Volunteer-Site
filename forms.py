@@ -22,4 +22,29 @@ class AddProductForm(FlaskForm):
 
 class AddSearchForm(FlaskForm):
     input = StringField("input")
+    submitS = SubmitField("submit")
+
+class AddRegForm(FlaskForm):
+    email = StringField("email", validators=[
+                            data_required(message="ჩაწერეთ ელ-ფოსტა")])
+    name =  StringField("email", validators=[
+                            data_required(message="ჩაწერეთ სახელი")])
+    surname =  StringField("email", validators=[
+                            data_required(message="ჩაწერეთ გვარი")])
+    password = StringField("password", validators=[
+                            data_required(message="ჩაწერეთ პაროლი")])
     submit = SubmitField("submit")
+
+class AddLoginForm(FlaskForm):
+
+    email = StringField("email", validators=[
+                            data_required(message="ჩაწერეთ ელ-ფოსტა")])
+    password = StringField("password", validators=[
+                            data_required(message="ჩაწერეთ პაროლი")])
+    submit = SubmitField("submit")
+
+class AddXForm(FlaskForm):
+
+    info = StringField("info")
+
+    submitX = SubmitField("submit")
