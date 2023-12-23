@@ -128,7 +128,7 @@ def view_page(page_id):
     #     current_user.commingTo = ""
     #     db.session.commit()
 
-    if current_user.commingTo and page_id in json.loads(current_user.commingTo): comming = "მოვდივარ"
+    if current_user.id and current_user.commingTo and page_id in json.loads(current_user.commingTo): comming = "მოვდივარ"
     else: comming = "წამოხვალ?"
     
     return render_template("custom_page.html", page=page, x=x, comming=comming, comming_num=curr_page.comming)
