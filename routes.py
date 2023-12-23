@@ -25,7 +25,7 @@ def index():
     return render_template("index.html", pages=pages, search=search, x=x)
 
 
-@app.route("/add.html", methods=["POST", "GET"])
+@app.route("/add", methods=["POST", "GET"])
 def add():
 
     form = AddProductForm()
