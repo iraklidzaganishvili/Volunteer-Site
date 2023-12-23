@@ -89,6 +89,9 @@ def view_page(page_id):
         return render_template("404.html")
     
     if x.validate_on_submit():
+        
+        if not hasattr(current_user, "id"):
+            return redirect("/register")
 
         commingTo = []
         
